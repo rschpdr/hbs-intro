@@ -1,0 +1,43 @@
+{{!-- 10. Criar arquivo HBS --}}
+
+  <div class="container-fluid">
+  <h3><strong>Student:</strong> {{studentName}}</h3> 
+  <table>
+    <thead>
+      <th>Campus</th>
+      <th>Country</th>
+    </thead>
+    <tbody>
+      {{!-- Itera sobre os itens da array na propriedade campi, e cria uma linha da tabela para cada elemento da array --}}
+      {{#each campi}}
+        <tr>
+          <td>{{this.campusName}}</td>
+          <td>{{this.country}}</td>
+        </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+
+{{!-- Renderize caso o parametro do bloco if seja verdadeiro --}}
+  {{#if isEnrolled}}
+    <p>
+      Welcome to the bootcamp!
+    </p>
+  {{/if}}
+
+{{!-- Renderize caso o parametro do bloco unless seja falso --}}
+  {{#unless isEnrolled}}
+    <p>
+      Sorry... you're not enrolled in the bootcamp
+    </p>
+  {{/unless}}
+
+  {{!-- Podemos acessar propriedades de um objeto por dot notation --}}
+  <h1>{{studentAddress.street}}</h1>
+
+  {{!-- Ou usando o operador with para mudar o escopo do bloco para outro objeto --}}
+  {{#with studentAddress}}
+    <p>Student lives at {{street}}, {{address}}, {{neighbourhood}}</p>
+  {{/with}}
+  </div>
